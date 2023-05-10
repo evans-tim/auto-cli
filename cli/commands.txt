@@ -1,0 +1,31 @@
+customers
+vendors
+
+accounts
+[account] balance
+[account] deposit
+[account] withdraw
+
+budgets
+budget create
+budget trajectory
+budget -i [budget_id] update
+budget [budget_name] update
+
+bills
+bill create
+bill read
+bill update
+bill delete 
+bill make_recurring
+
+bill [bill_name] pay
+
+invoices
+invoice create
+invoice read
+invoice update
+invoice delete 
+invoice make_recurring
+
+invoice [bill_name] pay

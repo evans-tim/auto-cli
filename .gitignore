@@ -1,0 +1,5 @@
+# hide node_modules
+
+node_modules/
+.env
+./ai/*
