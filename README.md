@@ -1,5 +1,5 @@
 # auto-cli
-automatically generate an express server and command line interface frontend from Sequelize models for Postgres
+automatically generate an express server and command line interface frontend from Sequelize models for Postgres in Windows
 
 ## Example Usage
 ```
