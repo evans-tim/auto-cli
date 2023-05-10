@@ -63,7 +63,7 @@ const ${table_name}Commands = [
   },
   {
     command: "create ${table_name}",
-    describe: "Create a new ${table_name_singular}",
+    describe: "Create new ${table_name_singular}",
     builder: ${attributesToBuilderCreate(
       table_name_singular,
       attributes,
@@ -85,7 +85,7 @@ const ${table_name}Commands = [
   },
   {
     command: "read ${table_name}",
-    describe: "Read an ${table_name_singular} by ID",
+    describe: "Read ${table_name_singular} by ID",
     builder: {
       id: {
         describe: "${table_name_singular} ID",
@@ -105,7 +105,7 @@ const ${table_name}Commands = [
   },
   {
     command: "update ${table_name}",
-    describe: "Update ${table_name_singular}  by ID",
+    describe: "Update ${table_name_singular} by ID",
     builder: ${attributesToBuilderCreate(
       table_name_singular,
       attributes,
@@ -127,7 +127,7 @@ const ${table_name}Commands = [
   },
   {
     command: "delete ${table_name}",
-    describe: "Delete an ${table_name_singular}",
+    describe: "Delete ${table_name_singular}",
     builder: {
       id: {
         describe: "${table_name} ID",
