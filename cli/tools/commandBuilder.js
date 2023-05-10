@@ -10,6 +10,14 @@ function capitalize(s) {
   return s && s[0].toUpperCase() + s.slice(1);
 }
 
+//convert from sequelize types to yarg types
+const typeConverter = {
+  string: "string",
+  integer: "number",
+  boolean: "boolean",
+  date: "string",
+}
+
 const attributesToBuilderCreate = (table_name, attributes, is_update) => {
   let builderObj = {};
   attributes.split(",").map((attr) => {
@@ -17,7 +25,7 @@ const attributesToBuilderCreate = (table_name, attributes, is_update) => {
     builderObj[column_name] = {
       describe: `${capitalize(table_name)} ${column_name}`,
       demandOption: !is_update ? true : column_name === "id" ? true : false,
-      type: type === "integer" ? "number" : type,
+      type: typeConverter[type],
     };
   });
   return JSON.stringify(builderObj);
@@ -49,7 +57,7 @@ import { BASE_URL } from "../env.js";
 let commands_string = `
 const ${table_name}Commands = [
   {
-    command: "list ${table_name}",
+    command: "${table_name} list",
     describe: "List all ${table_name}",
     handler: async () => {
       try {
@@ -62,7 +70,7 @@ const ${table_name}Commands = [
     },
   },
   {
-    command: "create ${table_name}",
+    command: "${table_name} create",
     describe: "Create new ${table_name_singular}",
     builder: ${attributesToBuilderCreate(
       table_name_singular,
@@ -84,7 +92,7 @@ const ${table_name}Commands = [
     },
   },
   {
-    command: "read ${table_name}",
+    command: "${table_name} read",
     describe: "Read ${table_name_singular} by ID",
     builder: {
       id: {
@@ -104,7 +112,7 @@ const ${table_name}Commands = [
     },
   },
   {
-    command: "update ${table_name}",
+    command: "${table_name} update",
     describe: "Update ${table_name_singular} by ID",
     builder: ${attributesToBuilderCreate(
       table_name_singular,
@@ -126,7 +134,7 @@ const ${table_name}Commands = [
     },
   },
   {
-    command: "delete ${table_name}",
+    command: "${table_name} delete",
     describe: "Delete ${table_name_singular}",
     builder: {
       id: {
