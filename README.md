@@ -9,4 +9,6 @@ npm run ./server/add-table --name accounts --attributes name:string,account_numb
   <img src="https://github.com/evans-tim/auto-cli/assets/62822134/f2aea821-7e44-4b99-91c3-7c50b09d53b7)" alt="cli example"/>
 </p>
 
-Note: cli requires ./server/index.js to be running
+Note: 
+- cli requires ./server/index.js to be running
+- postgres config in ./server/config/config.json
