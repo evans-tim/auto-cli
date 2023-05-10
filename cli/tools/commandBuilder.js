@@ -17,7 +17,7 @@ const attributesToBuilderCreate = (table_name, attributes, is_update) => {
     builderObj[column_name] = {
       describe: `${capitalize(table_name)} ${column_name}`,
       demandOption: !is_update ? true : column_name === "id" ? true : false,
-      type,
+      type: type === "integer" ? "number" : type,
     };
   });
   return JSON.stringify(builderObj);
