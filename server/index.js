@@ -7,8 +7,6 @@ const basename = path.basename(__filename);
 
 const db = require("./models");
 
-const accounts = require("./routes/accounts");
-
 //middleware
 app.use(cors());
 app.use(express.json({ limit: "50mb" }));
